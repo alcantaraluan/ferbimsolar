@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {    
+    display: grid;
+    grid-template-areas: "header header header header"
+                        "hero hero hero hero"
+                        "about about about about"
+                        "services services services services"
+                        "projects projects projects projects"
+                        "contact contact contact contact"
+                        "footer footer footer footer";
+    grid-template-columns: repeat(4, 1fr);
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.6rem;
+}
+
+.header {
+    grid-area: header;
+    background-color: #2A4B8C;
+}
+
+.header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    min-height: 75px;
+}
+
+.hero {
+    grid-area: hero;
+    background-color: black;
+    background: url('../images/ferbim-solar-hero.jpg') center center no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 85vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.hero::after {
+    content: url('../images/down-arrow.png');
+    height: 35px;
+    bottom: 40px;
+    position: absolute;
+    animation: downarrow 0.6s infinite alternate ease-in-out;
+}
+
+@-webkit-keyframes downarrow {
+    0% {
+        -webkit-transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    100% {
+        -webkit-transform: translateY(0.4em);
+        opacity: 0.9;
+    }
+}
+
+.hero img {
+    z-index: 1;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 5rem;
+    z-index: 1;
+}
+
+.hero p {
+    color: white;
+    z-index: 1;
+}
+
+.about {
+    grid-area: about;
+    display: grid;
+    grid-template-columns: 1fr 1fr;    
+}
+
+.about-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20%;
+}
+
+.about h1, .services h1 {
+    color: #2A4B8C;
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.about .about-info p {
+    margin-bottom: 40px;
+}
+
+.about .btn-orcamento {
+    color: #2A4B8C;
+    font-size: 1.8rem;
+    border-radius: 50px;
+    border: 2px solid #2A4B8C;
+    padding: 1.6rem 2rem;
+    text-transform: uppercase;
+}
+
+.about .about-image {
+    background: url('../images/about-us-image.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+@media(max-width: 738px) {
+    .about {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+.services {
+    grid-area: services;
+    display: grid;
+    grid-template-columns: 1fr
+}
+
+.services .services-info {
+    padding: 20%;
+}
+
+.services h2 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.services .services-image {
+    background: url('https://via.placeholder.com/560x450') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.projects {
+    grid-area: projects;
+}
+
+.projects .projects-slide {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.projects .projects-slide .item {
+    flex: 1 1 300px;
+}
+
+.contact {
+    grid-area: contact;
+}
+
+.footer {
+    grid-area: footer;
+}
